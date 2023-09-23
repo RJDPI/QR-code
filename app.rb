@@ -1,9 +1,19 @@
 require "sinatra"
 require "sinatra/reloader"
+require "rqrcode"
+
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+ 
+  erb(:home)
+
+end
+
+get("/qr") do
+  #this should be 
+  text=params.fetch("text")
+
+  qr = RQRCode::QRCode.new(text)
+  @qr_s=qr.to_s
+  erb(:qr)
 end
