@@ -11,7 +11,7 @@ end
 
 get("/qr") do
   #this should be 
-  text=params.fetch("text")
+  text=params.fetch("txt")
 
   qr = RQRCode::QRCode.new(text)
   @qr_s=qr.to_s
